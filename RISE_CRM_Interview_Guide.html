@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RISE CRM - Technical & Interview Preparation Guide</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm 20mm 15mm;
+            @bottom-right {
+                content: counter(page);
+            }
+        }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #24292e;
+            line-height: 1.5;
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+        .header-banner {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            padding: 24px 28px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .header-banner h1 {
+            margin: 0 0 6px 0;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .header-banner p {
+            margin: 0;
+            font-size: 14px;
+            color: #dbe4f0;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        h2 {
+            color: #1e3c72;
+            font-size: 18px;
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 6px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+        h3 {
+            color: #2a5298;
+            font-size: 14px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 0 0 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 18px 0;
+            font-size: 12px;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #d0d7de;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f6f8fa;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #fbfcfd;
+        }
+        .card {
+            background: #f8fafc;
+            border-left: 4px solid #2a5298;
+            border: 1px solid #e2e8f0;
+            border-left-width: 4px;
+            padding: 12px 14px;
+            margin: 12px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        .card-title {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 4px;
+        }
+        .challenge-box {
+            background: #fff8f2;
+            border: 1px solid #fed7aa;
+            border-left: 4px solid #f97316;
+            padding: 12px 14px;
+            margin: 12px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        .challenge-title {
+            font-weight: 700;
+            color: #c2410c;
+            margin-bottom: 4px;
+        }
+        .qa-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 4px solid #16a34a;
+            padding: 12px 14px;
+            margin: 14px 0;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        .qa-question {
+            font-weight: 700;
+            color: #15803d;
+            margin-bottom: 6px;
+        }
+        .script-quote {
+            font-style: italic;
+            color: #1f2937;
+            background: #ffffff;
+            padding: 10px 12px;
+            border-radius: 4px;
+            border: 1px dashed #cbd5e1;
+            margin-top: 6px;
+        }
+        code {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 11.5px;
+        }
+        ul, ol {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>RISE CRM - Technical & Interview Guide</h1>
+        <p>Comprehensive Architectural Breakdown & QA Automation Interview Preparation</p>
+        <span class="badge">AUT: https://rise.anhtester.com/</span> &nbsp;
+        <span class="badge">FRAMEWORK: Selenium Java + TestNG</span>
+    </div>
+
+    <h2>1. Executive Summary & Application Overview</h2>
+    <p>
+        <strong>RISE CRM</strong> is an enterprise-grade, web-based <strong>Customer Relationship Management (CRM) and Project Management platform</strong>. 
+        It is built to streamline client onboarding, sales pipelines, project lifecycles, team assignments, invoicing, and support ticket management for small to medium enterprises.
+    </p>
+    <div class="card">
+        <div class="card-title">Application Under Test (AUT) Specifications</div>
+        <ul>
+            <li><strong>Application URL:</strong> <code>https://rise.anhtester.com/</code></li>
+            <li><strong>Architecture:</strong> Single-page style responsive web app built using PHP (CodeIgniter MVC), MySQL, Bootstrap, jQuery, AJAX, and REST APIs.</li>
+            <li><strong>UI Components:</strong> Asynchronous AJAX modals, jQuery DataTables, Select2 custom dynamic dropdowns, and Chart.js dashboards.</li>
+            <li><strong>Key Automation Objective:</strong> Regression automation of critical business paths (Multi-role Authentication, Client Onboarding, Dynamic Table Filtering, and Verification).</li>
+        </ul>
+    </div>
+
+    <h2>2. Core Business Modules & Test Coverage</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 25%;">Module</th>
+                <th style="width: 40%;">Business Functionality</th>
+                <th style="width: 35%;">Automation Test Coverage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Authentication & RBAC</strong></td>
+                <td>Role-Based Access Control supporting multiple user tiers: Admin, Team Member, and Client.</td>
+                <td>Login with admin/client roles, session management, negative authentication handling, URL redirection to <code>/dashboard</code>.</td>
+            </tr>
+            <tr>
+                <td><strong>Dashboard (<code>/dashboard</code>)</strong></td>
+                <td>Executive overview displaying KPI metric cards (Total Clients, Active Projects, Invoices, Open Tasks).</td>
+                <td>Post-login dashboard layout validation, menu widget presence, card text and counters.</td>
+            </tr>
+            <tr>
+                <td><strong>Client Management (<code>/clients</code>)</strong></td>
+                <td>Client directory supporting Organization and Individual client profiles, billing addresses, VAT/Tax numbers, and group categorization.</td>
+                <td>End-to-end "Add Client" workflow, Select2 dropdown selection, AJAX form submission, and database-to-UI verification.</td>
+            </tr>
+            <tr>
+                <td><strong>Projects & Tasks (<code>/projects</code>)</strong></td>
+                <td>Managing project deliverables, milestones, start/end dates, task assignments, and progress tracking.</td>
+                <td>Project creation verification, navigation between project tabs, task list filtering.</td>
+            </tr>
+            <tr>
+                <td><strong>DataTables & Search</strong></td>
+                <td>Dynamic table listing clients with server-side pagination, sorting, and real-time keyword search.</td>
+                <td>Table column text assertion, pagination traversal, dynamic search filter verification using custom table helpers.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>3. Key Technical Challenges Solved (Interview Highlights)</h2>
+    <p>When interviewers ask about automation challenges, describe these four specific engineering problems you solved in this framework:</p>
+
+    <div class="challenge-box">
+        <div class="challenge-title">1. Automating Custom Select2 jQuery Dropdowns</div>
+        <p><strong>The Challenge:</strong> The "Owner" and "Client Groups" fields in RISE CRM do not use standard HTML <code>&lt;select&gt;</code> elements. Standard Selenium <code>Select(webElement)</code> throws <code>UnexpectedTagNameException</code> because they are implemented using custom <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> containers.</p>
+        <p><strong>The Solution:</strong> Implemented a reusable keyword action:
+        <ol>
+            <li>Click the Select2 target container (<code>#s2id_created_by</code>).</li>
+            <li>Wait for the dynamic search input (<code>#select2-drop input</code>) to become visible.</li>
+            <li>Type the target value and send <code>Keys.ENTER</code> or click the dynamically populated match (<code>.select2-match</code>).</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">2. Asynchronous AJAX Modal Windows (<code>#ajaxModalContent</code>)</div>
+        <p><strong>The Challenge:</strong> Clicking "Add Client" does not navigate to a new page; it asynchronously injects a Bootstrap modal into the DOM. Interacting with form inputs before the modal animation and AJAX call finish causes <code>ElementNotInteractableException</code> or <code>StaleElementReferenceException</code>.</p>
+        <p><strong>The Solution:</strong> Built a smart wait helper (<code>WebUI.waitForPageLoaded()</code> and <code>WebUI.waitForJQueryLoad()</code>) that monitors <code>jQuery.active == 0</code> and <code>document.readyState == 'complete'</code>, ensuring JavaScript execution is fully idle before interacting with elements.</p>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">3. Dynamic Table Search & Column Validation</div>
+        <p><strong>The Challenge:</strong> The client list table dynamically re-renders row contents via AJAX whenever text is typed into the search bar without triggering a browser refresh.</p>
+        <p><strong>The Solution:</strong> Developed <code>checkContainsValueOnTableByColumn(int columnIndex, String expectedText)</code> in <code>WebUI.java</code>. It clears the search field, enters the query, waits for the DOM to settle, retrieves all column elements in the tbody, and asserts matches across table rows.</p>
+    </div>
+
+    <div class="challenge-box">
+        <div class="challenge-title">4. Secure Data-Driven Testing with Apache POI</div>
+        <p><strong>The Challenge:</strong> Separating test logic from test data, avoiding hardcoded passwords in repositories, and testing multiple datasets.</p>
+        <p><strong>The Solution:</strong> Used Apache POI to read records from <code>ClientsDataExcel.xlsx</code> into a <code>Hashtable&lt;String, String&gt;</code> via TestNG's <code>@DataProvider</code>. Passwords stored in encrypted form were decoded at runtime using <code>DecodeUtils.decrypt()</code>.</p>
+    </div>
+
+    <h2>4. Framework Architecture Overview</h2>
+    <div class="card">
+        <div class="card-title">Technology Stack & Design Patterns</div>
+        <ul>
+            <li><strong>Pattern:</strong> Page Object Model (POM) with Page Factory and fluent method chaining.</li>
+            <li><strong>Thread Safety:</strong> Implemented Selenium's <code>ThreadGuard.protect()</code> with <code>ThreadLocal&lt;WebDriver&gt;</code> to enable parallel test execution across browser threads without session collisions.</li>
+            <li><strong>Reports & Monitoring:</strong> ExtentReports 5.x for interactive executive dashboards, Allure TestNG for detailed step-by-step analytics, and Log4j2 for console & file logging.</li>
+            <li><strong>Failure Captures:</strong> Automated screenshot capture on test failure hooked directly via TestNG <code>TestListener</code> (<code>onTestFailure</code>).</li>
+            <li><strong>CI/CD Readiness:</strong> Configured for headless execution (<code>HEADLESS=true</code>) for seamless integration with Jenkins pipelines.</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>5. High-Impact Interview Q&A (Sample Scripts)</h2>
+
+    <div class="qa-box">
+        <div class="qa-question">Q1: "Can you tell me about the application you automated in your framework?"</div>
+        <div class="script-quote">
+            "I automated <strong>RISE CRM</strong> (https://rise.anhtester.com/), an enterprise web application designed for Client Relationship Management and Project Tracking. 
+            The system allows companies to manage the full client lifecycle—from initial lead and onboarding to project milestone tracking and invoicing. 
+            My test suite specifically covered regression paths for user authentication across multiple roles, end-to-end client creation, and search table validations. 
+            The application relies heavily on dynamic AJAX dialogs, Select2 search dropdowns, and jQuery DataTables."
+        </div>
+    </div>
+
+    <div class="qa-box">
+        <div class="qa-question">Q2: "What was the most technically challenging scenario you automated on this CRM?"</div>
+        <div class="script-quote">
+            "One of the most interesting challenges was automating the <strong>'Add Client' modal workflow</strong>. The form is loaded inside an asynchronous AJAX modal rather than a traditional page navigation, and several dropdowns (like Owner and Client Group) are built using custom Select2 widgets instead of native HTML select tags. 
+            Standard Selenium actions frequently failed due to timing issues. To make this robust, I implemented synchronization mechanisms that checked both document readyState and active jQuery AJAX connections (<code>jQuery.active === 0</code>), and encapsulated custom Select2 handling logic in our keyword utility class. This eliminated flakiness and made the test run seamlessly in parallel headless mode."
+        </div>
+    </div>
+
+    <div class="qa-box">
+        <div class="qa-question">Q3: "How did you manage test data and security in this framework?"</div>
+        <div class="script-quote">
+            "We followed a data-driven approach using Apache POI to parse test datasets from external Excel files (<code>ClientsDataExcel.xlsx</code>). We fed this into TestNG test methods using <code>@DataProvider</code> mapped to a <code>Hashtable&lt;String, String&gt;</code>. To maintain security, credentials were never hardcoded in plain text—they were stored encrypted in the dataset and decoded at runtime using a decryption utility before interacting with the browser."
+        </div>
+    </div>
+
+    <div class="qa-box">
+        <div class="qa-question">Q4: "How do you run these tests in CI/CD?"</div>
+        <div class="script-quote">
+            "The framework is fully Maven-integrated. In our configuration, we can toggle <code>HEADLESS=true</code> in <code>config.properties</code> or pass it as a Maven command-line argument (<code>mvn test -DHEADLESS=true</code>). We can run individual TestNG suites or parallel classes. Post-execution, the framework automatically produces ExtentReports HTML dashboards, Allure test results, and archives failure screenshots for CI artifacts."
+        </div>
+    </div>
+
+    <h2>6. Quick Reference Cheat-Sheet</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Application URL</strong></td>
+                <td><code>https://rise.anhtester.com/signin</code></td>
+            </tr>
+            <tr>
+                <td><strong>Admin Login</strong></td>
+                <td><code>admin@example.com</code> / <code>123456</code> (Redirects to <code>/dashboard</code>)</td>
+            </tr>
+            <tr>
+                <td><strong>Client Login</strong></td>
+                <td><code>customer@example.com</code> / <code>123456</code></td>
+            </tr>
+            <tr>
+                <td><strong>Test Suite XMLs</strong></td>
+                <td><code>src/test/resources/suites/CRM/SignIn-simple.xml</code>, <code>Clients-parallel.xml</code></td>
+            </tr>
+            <tr>
+                <td><strong>Key Page Classes</strong></td>
+                <td><code>SignInPageCRM.java</code>, <code>DashboardPageCRM.java</code>, <code>ClientPageCRM.java</code></td>
+            </tr>
+            <tr>
+                <td><strong>HTML Report Path</strong></td>
+                <td><code>exports/ExtentReports/ExtentReports.html</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
