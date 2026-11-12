@@ -3,6 +3,7 @@ package com.anhtester.config;
 import org.aeonbits.owner.ConfigCache;
 
 public class ConfigFactory {
+    // Jenkins CI/CD trigger test comment
 
     private ConfigFactory() {
     }

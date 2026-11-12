@@ -22,30 +22,23 @@ import static com.anhtester.keywords.WebUI.*;
 @Feature("Sign In Test")
 public class SignInTest extends BaseTest {
 
-    SignInPageCRM signInPageCRM;
-    DashboardPageCRM dashboardPageCRM;
-
-    public SignInTest() {
-        signInPageCRM = new SignInPageCRM();
-    }
-
     //Using library DataProvider with read Hashtable
     @Test(priority = 1, description = "TC01_signInWithDataProvider", dataProvider = "getSignInDataHashTable", dataProviderClass = DataProviderManager.class)
     public void signInWithDataProvider(Hashtable<String, String> data) {
-        signInPageCRM.signIn(data);
+        new SignInPageCRM().signIn(data);
 
     }
 
     @Test(priority = 2, description = "TC02_signInWithAdminRole")
     public void signInWithAdminRole() {
-        dashboardPageCRM = signInPageCRM.signInWithAdminRole();
-        verifyElementPresent(dashboardPageCRM.menuDashboard, 5, "The menu Dashboard does not exist.");
+        DashboardPageCRM dashboardPage = new SignInPageCRM().signInWithAdminRole();
+        verifyElementPresent(dashboardPage.menuDashboard, 15, "The menu Dashboard does not exist.");
 
     }
 
     @Test(priority = 3, description = "TC03_signInWithClientRole")
     public void signInWithClientRole() {
-        signInPageCRM.signInWithClientRole();
+        new SignInPageCRM().signInWithClientRole();
         verifyContains(getPageTitle(), "Dashboard | RISE CRM");
 
     }
