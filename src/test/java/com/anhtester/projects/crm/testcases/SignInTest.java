@@ -25,6 +25,7 @@ public class SignInTest extends BaseTest {
     //Using library DataProvider with read Hashtable
     @Test(priority = 1, description = "TC01_signInWithDataProvider", dataProvider = "getSignInDataHashTable", dataProviderClass = DataProviderManager.class)
     public void signInWithDataProvider(Hashtable<String, String> data) {
+        org.testng.Assert.fail("Simulated test failure to verify n8n email alert");
         new SignInPageCRM().signIn(data);
 
     }
