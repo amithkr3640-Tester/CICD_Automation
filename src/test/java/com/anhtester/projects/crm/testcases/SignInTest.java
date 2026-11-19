@@ -45,7 +45,6 @@ public class SignInTest extends BaseTest {
 
     @Test(priority = 4, description = "TC04_loginPerfexCRM")
     public void loginPerfexCRM() {
-        org.testng.Assert.fail("Simulated test failure to verify n8n email alert");
         openWebsite("https://crm.anhtester.com/admin/authentication");
         clearAndFillText(By.xpath("//input[@id='email']"), "admin@example.com");
         clearAndFillText(By.xpath("//input[@id='password']"), "123456");
